@@ -1,0 +1,74 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="havaModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Istasyonlar">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="IstasyonAd" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="KullaniciTbl">
+    <Key>
+      <PropertyRef Name="KullaniciAdi" />
+    </Key>
+    <Property Name="KullaniciAdi" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Sifre" Type="varchar" MaxLength="250" Nullable="false" />
+    <Property Name="Adi" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Soyadi" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Parametreler">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="tinyint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ParametreAdi" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Sehirler">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="SehirAd" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'hava.dbo.Veriler' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="Veriler">
+    <Key>
+      <PropertyRef Name="İstasyon" />
+    </Key>
+    <Property Name="İstasyon" Type="nvarchar" MaxLength="255" Nullable="false" />
+    <Property Name="Parametre" Type="nvarchar" MaxLength="255" />
+    <Property Name="Birim" Type="nvarchar" MaxLength="255" />
+    <Property Name="Min# Değer" Type="float" />
+    <Property Name="Max# Değer" Type="float" />
+    <Property Name="Ort# Değer" Type="float" />
+    <Property Name="Veri Adeti" Type="float" />
+    <Property Name="Veri Yüzdesi" Type="float" />
+    <Property Name="Standart Sapma" Type="float" />
+    <Property Name="Toplam Değer" Type="float" />
+    <Property Name="IstasyonId" Type="int" />
+    <Property Name="ParametreId" Type="int" />
+  </EntityType>
+  <EntityContainer Name="havaModelStoreContainer">
+    <EntitySet Name="Istasyonlar" EntityType="Self.Istasyonlar" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="KullaniciTbl" EntityType="Self.KullaniciTbl" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Parametreler" EntityType="Self.Parametreler" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Sehirler" EntityType="Self.Sehirler" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Veriler" EntityType="Self.Veriler" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [Veriler].[İstasyon] AS [İstasyon], 
+    [Veriler].[Parametre] AS [Parametre], 
+    [Veriler].[Birim] AS [Birim], 
+    [Veriler].[Min# Değer] AS [Min# Değer], 
+    [Veriler].[Max# Değer] AS [Max# Değer], 
+    [Veriler].[Ort# Değer] AS [Ort# Değer], 
+    [Veriler].[Veri Adeti] AS [Veri Adeti], 
+    [Veriler].[Veri Yüzdesi] AS [Veri Yüzdesi], 
+    [Veriler].[Standart Sapma] AS [Standart Sapma], 
+    [Veriler].[Toplam Değer] AS [Toplam Değer], 
+    [Veriler].[IstasyonId] AS [IstasyonId], 
+    [Veriler].[ParametreId] AS [ParametreId]
+    FROM [dbo].[Veriler] AS [Veriler]</DefiningQuery>
+    </EntitySet>
+  </EntityContainer>
+</Schema>

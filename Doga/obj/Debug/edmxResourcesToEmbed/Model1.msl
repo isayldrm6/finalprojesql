@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="havaModelStoreContainer" CdmEntityContainer="havaEntities">
+    <EntitySetMapping Name="Istasyonlar">
+      <EntityTypeMapping TypeName="havaModel.Istasyonlar">
+        <MappingFragment StoreEntitySet="Istasyonlar">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="IstasyonAd" ColumnName="IstasyonAd" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="KullaniciTbl">
+      <EntityTypeMapping TypeName="havaModel.KullaniciTbl">
+        <MappingFragment StoreEntitySet="KullaniciTbl">
+          <ScalarProperty Name="KullaniciAdi" ColumnName="KullaniciAdi" />
+          <ScalarProperty Name="Sifre" ColumnName="Sifre" />
+          <ScalarProperty Name="Adi" ColumnName="Adi" />
+          <ScalarProperty Name="Soyadi" ColumnName="Soyadi" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Parametreler">
+      <EntityTypeMapping TypeName="havaModel.Parametreler">
+        <MappingFragment StoreEntitySet="Parametreler">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="ParametreAdi" ColumnName="ParametreAdi" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Sehirler">
+      <EntityTypeMapping TypeName="havaModel.Sehirler">
+        <MappingFragment StoreEntitySet="Sehirler">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="SehirAd" ColumnName="SehirAd" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Veriler">
+      <EntityTypeMapping TypeName="havaModel.Veriler">
+        <MappingFragment StoreEntitySet="Veriler">
+          <ScalarProperty Name="ParametreId" ColumnName="ParametreId" />
+          <ScalarProperty Name="IstasyonId" ColumnName="IstasyonId" />
+          <ScalarProperty Name="Toplam_Değer" ColumnName="Toplam Değer" />
+          <ScalarProperty Name="Standart_Sapma" ColumnName="Standart Sapma" />
+          <ScalarProperty Name="Veri_Yüzdesi" ColumnName="Veri Yüzdesi" />
+          <ScalarProperty Name="Veri_Adeti" ColumnName="Veri Adeti" />
+          <ScalarProperty Name="Ort__Değer" ColumnName="Ort# Değer" />
+          <ScalarProperty Name="Max__Değer" ColumnName="Max# Değer" />
+          <ScalarProperty Name="Min__Değer" ColumnName="Min# Değer" />
+          <ScalarProperty Name="Birim" ColumnName="Birim" />
+          <ScalarProperty Name="Parametre" ColumnName="Parametre" />
+          <ScalarProperty Name="İstasyon" ColumnName="İstasyon" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

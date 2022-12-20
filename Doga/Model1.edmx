@@ -1,0 +1,218 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="havaModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Istasyonlar">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="IstasyonAd" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="KullaniciTbl">
+          <Key>
+            <PropertyRef Name="KullaniciAdi" />
+          </Key>
+          <Property Name="KullaniciAdi" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Sifre" Type="varchar" MaxLength="250" Nullable="false" />
+          <Property Name="Adi" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Soyadi" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Parametreler">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="tinyint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ParametreAdi" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Sehirler">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="SehirAd" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'hava.dbo.Veriler' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="Veriler">
+          <Key>
+            <PropertyRef Name="İstasyon" />
+          </Key>
+          <Property Name="İstasyon" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="Parametre" Type="nvarchar" MaxLength="255" />
+          <Property Name="Birim" Type="nvarchar" MaxLength="255" />
+          <Property Name="Min# Değer" Type="float" />
+          <Property Name="Max# Değer" Type="float" />
+          <Property Name="Ort# Değer" Type="float" />
+          <Property Name="Veri Adeti" Type="float" />
+          <Property Name="Veri Yüzdesi" Type="float" />
+          <Property Name="Standart Sapma" Type="float" />
+          <Property Name="Toplam Değer" Type="float" />
+          <Property Name="IstasyonId" Type="int" />
+          <Property Name="ParametreId" Type="int" />
+        </EntityType>
+        <EntityContainer Name="havaModelStoreContainer">
+          <EntitySet Name="Istasyonlar" EntityType="Self.Istasyonlar" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="KullaniciTbl" EntityType="Self.KullaniciTbl" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Parametreler" EntityType="Self.Parametreler" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Sehirler" EntityType="Self.Sehirler" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Veriler" EntityType="Self.Veriler" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [Veriler].[İstasyon] AS [İstasyon], 
+    [Veriler].[Parametre] AS [Parametre], 
+    [Veriler].[Birim] AS [Birim], 
+    [Veriler].[Min# Değer] AS [Min# Değer], 
+    [Veriler].[Max# Değer] AS [Max# Değer], 
+    [Veriler].[Ort# Değer] AS [Ort# Değer], 
+    [Veriler].[Veri Adeti] AS [Veri Adeti], 
+    [Veriler].[Veri Yüzdesi] AS [Veri Yüzdesi], 
+    [Veriler].[Standart Sapma] AS [Standart Sapma], 
+    [Veriler].[Toplam Değer] AS [Toplam Değer], 
+    [Veriler].[IstasyonId] AS [IstasyonId], 
+    [Veriler].[ParametreId] AS [ParametreId]
+    FROM [dbo].[Veriler] AS [Veriler]</DefiningQuery>
+          </EntitySet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="havaModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Istasyonlar">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="IstasyonAd" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+        </EntityType>
+        <EntityType Name="KullaniciTbl">
+          <Key>
+            <PropertyRef Name="KullaniciAdi" />
+          </Key>
+          <Property Name="KullaniciAdi" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Sifre" Type="String" MaxLength="250" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Adi" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Soyadi" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Parametreler">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Byte" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ParametreAdi" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Sehirler">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="SehirAd" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+        </EntityType>
+        <EntityContainer Name="havaEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Istasyonlar" EntityType="Self.Istasyonlar" />
+          <EntitySet Name="KullaniciTbl" EntityType="Self.KullaniciTbl" />
+          <EntitySet Name="Parametreler" EntityType="Self.Parametreler" />
+          <EntitySet Name="Sehirler" EntityType="Self.Sehirler" />
+          <EntitySet Name="Veriler" EntityType="havaModel.Veriler" />
+        </EntityContainer>
+        <EntityType Name="Veriler">
+          <Key>
+            <PropertyRef Name="İstasyon" />
+          </Key>
+          <Property Name="İstasyon" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Parametre" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Birim" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Min__Değer" Type="Double" />
+          <Property Name="Max__Değer" Type="Double" />
+          <Property Name="Ort__Değer" Type="Double" />
+          <Property Name="Veri_Adeti" Type="Double" />
+          <Property Name="Veri_Yüzdesi" Type="Double" />
+          <Property Name="Standart_Sapma" Type="Double" />
+          <Property Name="Toplam_Değer" Type="Double" />
+          <Property Name="IstasyonId" Type="Int32" />
+          <Property Name="ParametreId" Type="Int32" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="havaModelStoreContainer" CdmEntityContainer="havaEntities">
+          <EntitySetMapping Name="Istasyonlar">
+            <EntityTypeMapping TypeName="havaModel.Istasyonlar">
+              <MappingFragment StoreEntitySet="Istasyonlar">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="IstasyonAd" ColumnName="IstasyonAd" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="KullaniciTbl">
+            <EntityTypeMapping TypeName="havaModel.KullaniciTbl">
+              <MappingFragment StoreEntitySet="KullaniciTbl">
+                <ScalarProperty Name="KullaniciAdi" ColumnName="KullaniciAdi" />
+                <ScalarProperty Name="Sifre" ColumnName="Sifre" />
+                <ScalarProperty Name="Adi" ColumnName="Adi" />
+                <ScalarProperty Name="Soyadi" ColumnName="Soyadi" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Parametreler">
+            <EntityTypeMapping TypeName="havaModel.Parametreler">
+              <MappingFragment StoreEntitySet="Parametreler">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="ParametreAdi" ColumnName="ParametreAdi" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Sehirler">
+            <EntityTypeMapping TypeName="havaModel.Sehirler">
+              <MappingFragment StoreEntitySet="Sehirler">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="SehirAd" ColumnName="SehirAd" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Veriler">
+            <EntityTypeMapping TypeName="havaModel.Veriler">
+              <MappingFragment StoreEntitySet="Veriler">
+                <ScalarProperty Name="ParametreId" ColumnName="ParametreId" />
+                <ScalarProperty Name="IstasyonId" ColumnName="IstasyonId" />
+                <ScalarProperty Name="Toplam_Değer" ColumnName="Toplam Değer" />
+                <ScalarProperty Name="Standart_Sapma" ColumnName="Standart Sapma" />
+                <ScalarProperty Name="Veri_Yüzdesi" ColumnName="Veri Yüzdesi" />
+                <ScalarProperty Name="Veri_Adeti" ColumnName="Veri Adeti" />
+                <ScalarProperty Name="Ort__Değer" ColumnName="Ort# Değer" />
+                <ScalarProperty Name="Max__Değer" ColumnName="Max# Değer" />
+                <ScalarProperty Name="Min__Değer" ColumnName="Min# Değer" />
+                <ScalarProperty Name="Birim" ColumnName="Birim" />
+                <ScalarProperty Name="Parametre" ColumnName="Parametre" />
+                <ScalarProperty Name="İstasyon" ColumnName="İstasyon" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

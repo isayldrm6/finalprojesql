@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="havaModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Istasyonlar">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="IstasyonAd" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+  </EntityType>
+  <EntityType Name="KullaniciTbl">
+    <Key>
+      <PropertyRef Name="KullaniciAdi" />
+    </Key>
+    <Property Name="KullaniciAdi" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Sifre" Type="String" MaxLength="250" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Adi" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Soyadi" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Parametreler">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Byte" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ParametreAdi" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Sehirler">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="SehirAd" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+  </EntityType>
+  <EntityContainer Name="havaEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Istasyonlar" EntityType="Self.Istasyonlar" />
+    <EntitySet Name="KullaniciTbl" EntityType="Self.KullaniciTbl" />
+    <EntitySet Name="Parametreler" EntityType="Self.Parametreler" />
+    <EntitySet Name="Sehirler" EntityType="Self.Sehirler" />
+    <EntitySet Name="Veriler" EntityType="havaModel.Veriler" />
+  </EntityContainer>
+  <EntityType Name="Veriler">
+    <Key>
+      <PropertyRef Name="İstasyon" />
+    </Key>
+    <Property Name="İstasyon" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Parametre" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Birim" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Min__Değer" Type="Double" />
+    <Property Name="Max__Değer" Type="Double" />
+    <Property Name="Ort__Değer" Type="Double" />
+    <Property Name="Veri_Adeti" Type="Double" />
+    <Property Name="Veri_Yüzdesi" Type="Double" />
+    <Property Name="Standart_Sapma" Type="Double" />
+    <Property Name="Toplam_Değer" Type="Double" />
+    <Property Name="IstasyonId" Type="Int32" />
+    <Property Name="ParametreId" Type="Int32" />
+  </EntityType>
+</Schema>

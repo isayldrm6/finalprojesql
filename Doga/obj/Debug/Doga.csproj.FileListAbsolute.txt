@@ -1,0 +1,16 @@
+C:\Users\90545\source\repos\Doga\bin\Debug\Doga.exe.config
+C:\Users\90545\source\repos\Doga\bin\Debug\Doga.exe
+C:\Users\90545\source\repos\Doga\bin\Debug\Doga.pdb
+C:\Users\90545\source\repos\Doga\bin\Debug\EntityFramework.dll
+C:\Users\90545\source\repos\Doga\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\90545\source\repos\Doga\bin\Debug\EntityFramework.xml
+C:\Users\90545\source\repos\Doga\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\90545\source\repos\Doga\obj\Debug\Doga.csproj.AssemblyReference.cache
+C:\Users\90545\source\repos\Doga\obj\Debug\Doga.Form1.resources
+C:\Users\90545\source\repos\Doga\obj\Debug\Doga.Form2.resources
+C:\Users\90545\source\repos\Doga\obj\Debug\Doga.Properties.Resources.resources
+C:\Users\90545\source\repos\Doga\obj\Debug\Doga.csproj.GenerateResource.cache
+C:\Users\90545\source\repos\Doga\obj\Debug\Doga.csproj.CoreCompileInputs.cache
+C:\Users\90545\source\repos\Doga\obj\Debug\Doga.csproj.CopyComplete
+C:\Users\90545\source\repos\Doga\obj\Debug\Doga.exe
+C:\Users\90545\source\repos\Doga\obj\Debug\Doga.pdb
